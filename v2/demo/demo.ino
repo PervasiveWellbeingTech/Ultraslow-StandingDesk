@@ -103,7 +103,7 @@ bool deskAtMaxHeight() {
 }
 
 void moveDeskToMin() {
-  while ((goalHeight == 0) && !deskAtMinHeight()) {
+  while (!deskAtMinHeight()) {
     if (findDistanceFromUltrasound(1) > MIN_DISTANCE_TO_FLOOR_RANGE[1]) {
       retractLinearActuator(1);
     } else if (findDistanceFromUltrasound(1) < MIN_DISTANCE_TO_FLOOR_RANGE[0]) {
@@ -114,7 +114,7 @@ void moveDeskToMin() {
 }
 
 void moveDeskToAvg() {
-  while ((goalHeight == 0) && !deskAtAvgHeight()) {
+  while (!deskAtAvgHeight()) {
     if (findDistanceFromUltrasound(1) > AVG_DISTANCE_TO_FLOOR_RANGE[1]) {
       retractLinearActuator(1);
     } else if (findDistanceFromUltrasound(1) < AVG_DISTANCE_TO_FLOOR_RANGE[0]) {
@@ -125,7 +125,7 @@ void moveDeskToAvg() {
 }
 
 void moveDeskToMax() {
-  while ((goalHeight == 0) && !deskAtMaxHeight()) {
+  while (!deskAtMaxHeight()) {
     if (findDistanceFromUltrasound(1) > MAX_DISTANCE_TO_FLOOR_RANGE[1]) {
       stopLinearActuator(1);
     } else if (findDistanceFromUltrasound(1) < MAX_DISTANCE_TO_FLOOR_RANGE[0]) {
