@@ -9,12 +9,16 @@
 #include <nRF24L01.h>
 #include <RF24.h>
 #include <RF24Network.h>
+#include <Wire.h>
+#include <Adafruit_MLX90614.h>
 
 #define PIR_PIN      6
 //Pins for Ultrasonic Sensor
 #define TRIGGER_PIN  2
 #define ECHO_PIN     3
 #define MAX_DISTANCE 200
+
+Adafruit_MLX90614 mlx = Adafruit_MLX90614();
 
 //Initialize the ultrasonic sensor
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
@@ -50,6 +54,7 @@ int get_height_cm() {
 }
 
 void setup() {
+  mlx.begin(); 
   pinMode(TRIGGER_PIN, OUTPUT);
   pinMode(ECHO_PIN, OUTPUT);
   pinMode(PIR_PIN, INPUT);
@@ -58,10 +63,21 @@ void setup() {
 
 void loop() {
   Serial.println(get_height_cm());
-  if (digitalRead(PIR_PIN)) {
-    Serial.println("Present");
+  double ambtemp = mlx.readAmbientTempC(); 
+  double objtemp = mlx.readObjectTempC();
+  //Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempF()); 
+  //Serial.print("*F\tObject = "); Serial.print(mlx.readObjectTempF()); Serial.println("*F");
+  //if (digitalRead(PIR_PIN)) {
+  //  Serial.println("Present PIR");
+  //} else {
+  //  Serial.println("Not Present PIR");
+  //}
+  if(objtemp > ambtemp + 0.2) {
+    //Serial.print("Ambient = "); Serial.print(ambtemp); 
+    //Serial.print("*C\tObject = "); Serial.print(objtemp); Serial.println("*C");
+    Serial.println("Present Thermal");
   } else {
-    Serial.println("Not Present");
+    Serial.println("Not Present Thermal");
   }
   delay(50);
 
