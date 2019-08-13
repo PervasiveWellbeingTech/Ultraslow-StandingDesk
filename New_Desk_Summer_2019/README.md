@@ -34,7 +34,11 @@ The remote has 3 buttons: UP, DOWN, and STOP. It is powered by a 9V battery (wit
 <p align="center">
   <img src="Images/Arduino_Button.png" height="100" title="Button Pinout">
 </p>
-To connect the button, connect pin A to the arduino digital pin, and pin D to GND. For UP, connect to D7 as INPUT_PULLUP. For DOWN, connect to D5 as INPUT_PULLUP. For STOP, connect to D3 as INPUT_PULLUP.
+To connect the button, connect pin A to the arduino digital pin, and pin D to GND. For UP, connect to D7 as INPUT_PULLUP. For DOWN, connect to D5 as INPUT_PULLUP. For STOP, connect to D3 as INPUT_PULLUP. The remote is as seen below:
+
+<p align="center">
+  <img src="Images/Remote_controller.png" height="400" title="Remote Controller">
+</p>
 
 # References
 
