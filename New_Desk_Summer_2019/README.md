@@ -18,11 +18,23 @@ The Ultrasonic sensor has 4 pins: VCC, GND, Trigger, and Echo. VCC must be conne
 
 ## Connecting Thermal Temperature Sensor (MLX90614)
 
-The thermal sensor utilizes I2C communication. The sensor has 4 pins, VCC, GND, SDA and SCL. VCC must be connected to the 5V pin on the arduino, and GND must be connected to the arduino GND. The SDA pin must connect to the SDA pin on the arduino (pin A4) and the SCL pin must connect to the SCL pin on the arduino (pin A5
+The thermal sensor utilizes I2C communication. The sensor has 4 pins, VCC, GND, SDA and SCL. VCC must be connected to the 5V pin on the arduino, and GND must be connected to the arduino GND. The SDA pin must connect to the SDA pin on the arduino (pin A4) and the SCL pin must connect to the SCL pin on the arduino (pin A5). Using the <wire.h> library and the <Adafruit_MLX90614.h> library in Arduino, you can read the ambient temperature as well as the object temperature, and compare them.
 
 # Remote Controlled Desk
 
-The remote controlled desk uses an rf arduino with the new_desk_controlled_by_remote.ino file. Pins 9, 10, 11, 12, and 13 are all used for radio communication.
+The remote controlled desk uses an rf arduino with the new_desk_controlled_by_remote.ino file. Pins 9, 10, 11, 12, and 13 are all used for radio communication on both the desk, and the remote. Remote communication uses libraries <SPI.h>, <nRF24L01.h>, <RF24.h>, and <RF24Network.h>.
+
+## Connecting the Desk
+
+The desk is connected the same was as shown above. There is no difference, except that the desk will be reading button presses from the remote.
+
+## Connecting the Remote.
+
+The remote has 3 buttons: UP, DOWN, and STOP. It is powered by a 9V battery (with + connected to the arduino VIN pin and - connected to GND). The pinout for the button is below:
+<p align="center">
+  <img src="Images/Arduino_Button.png" height="100" title="Button Pinout">
+</p>
+To connect the button, connect pin A to the arduino digital pin, and pin D to GND. For UP, connect to D7 as INPUT_PULLUP. For DOWN, connect to D5 as INPUT_PULLUP. For STOP, connect to D3 as INPUT_PULLUP.
 
 # References
 
