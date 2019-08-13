@@ -10,6 +10,7 @@ Below is the 7-Pin DIN pinout that the desks use for connection (with pin 1 on t
 </p>
 Looking at the male end, pin 2 of the connector needs to connect to pin 5 on the arduino as an INPUT_PULLUP in order to read button presses from the UP button. Pin 2 of the male connector needs to connect to pin 4 on the arduino as an INPUT_PULLUP in order to read button presses from the DOWN button. Pin 1 of the male connector must connect to GND.
 
+
 Looking at the female end, pin 6 of the connector needs to connect to pin 3 on the arduino as an OUTPUT pin which is set to HIGH in order to move the desk UP. Pin 5 of the female connector needs to connect to pin 2 as an OUTPUT pin, which is also set to HIGH in order to move the desk DOWN. Both of these pins MUST be set to LOW to STOP the desk. Also, pin 4 of the female connector must connect to GND on the arduino.
 
 ## Connecting Ultrasonic Distance Measuring Sensor to Arduino
@@ -22,7 +23,7 @@ The thermal sensor utilizes I2C communication. The sensor has 4 pins, VCC, GND, 
 
 # Remote Controlled Desk
 
-The remote controlled desk uses an rf arduino with the new_desk_controlled_by_remote.ino file. Pins 9, 10, 11, 12, and 13 are all used for radio communication on both the desk, and the remote. Remote communication uses libraries <SPI.h>, <nRF24L01.h>, <RF24.h>, and <RF24Network.h>.
+The remote controlled desk uses an rf arduino with the new_desk_controlled_by_remote.ino file. Pins 9, 10, 11, 12, and 13 are all used for radio communication on both the desk, and the remote. Radio communication uses libraries <SPI.h>, <nRF24L01.h>, <RF24.h>, and <RF24Network.h> (see below).
 
 ## Connecting the Desk
 
@@ -39,6 +40,13 @@ To connect the button, connect pin A to the arduino digital pin, and pin D to GN
 <p align="center">
   <img src="Images/Remote_controller.png" height="400" title="Remote Controller">
 </p>
+
+# Radio Communication
+
+The link for information on the rf nano is [here](https://github.com/keywish/keywish-nano-plus/tree/master/RF-Nano "RF-Nano Information"). The radios are used for the remote controlled desk (see above) as well as for the desk logger. The file INSERT FILE NAME FOR RECIEVER is the arduino code for the base/master, the [file radio_transmitter_node0X.ino](/radio_transmitter_node0X.ino "Radio Transmitter 0X File") is for any radio node in the network within the chain (aka is recieves data from one radio and sends data to another node). The file [radio_transmitter_node0XX.ino](/radio_transmitter_node0XX.ino "Radio Transmitter 0XX File") is for the last node in a network on a chain (aka it only sends data to another node). 
+
+
+The link for information on how to build a network is seen at this [link](https://howtomechatronics.com/tutorials/arduino/how-to-build-an-arduino-wireless-network-with-multiple-nrf24l01-modules/ "RF-Nano Radio Communication Information"). Radio communication uses libraries <SPI.h>, <nRF24L01.h>, <RF24.h>, and <RF24Network.h>.
 
 # References
 
