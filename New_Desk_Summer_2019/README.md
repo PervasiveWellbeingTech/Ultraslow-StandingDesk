@@ -8,10 +8,11 @@ Below is the 7-Pin DIN pinout that the desks use for connection (with pin 1 on t
 <p align="center">
   <img src="Images/Screen Shot 2019-08-13 at 2.49.53 PM.png" height="150" title="Desk Connector Pinout">
 </p>
-Looking at the male end, pin 2 of the connector needs to connect to pin 5 on the arduino as an INPUT_PULLUP in order to read button presses from the UP button. Pin 3 of the male connector needs to connect to pin 4 on the arduino as an INPUT_PULLUP in order to read button presses from the DOWN button. Pin 1 of the male connector must connect to GND.
+Looking at the male end, pin 2 of the connector (that is attached to the desk) needs to connect to pin 5 on the arduino as an INPUT_PULLUP in order to read button presses from the UP button. Pin 3 of the male connector (that is attached to the desk) needs to connect to pin 4 on the arduino as an INPUT_PULLUP in order to read button presses from the DOWN button. Pin 1 of the male connector (that is attached to the desk) must connect to GND. 
 
+Looking at the female end, pin 6 of the connector (that is attached to the desk) needs to connect to pin 3 on the arduino as an OUTPUT pin which is set to HIGH in order to move the desk UP. Pin 5 of the female connector (that is attached to the desk) needs to connect to pin 2 as an OUTPUT pin, which is also set to HIGH in order to move the desk DOWN. Both of these pins MUST be set to LOW to STOP the desk. Also, pin 4 of the female connector (that is attached to the desk) must connect to GND on the arduino.
 
-Looking at the female end, pin 6 of the connector needs to connect to pin 3 on the arduino as an OUTPUT pin which is set to HIGH in order to move the desk UP. Pin 5 of the female connector needs to connect to pin 2 as an OUTPUT pin, which is also set to HIGH in order to move the desk DOWN. Both of these pins MUST be set to LOW to STOP the desk. Also, pin 4 of the female connector must connect to GND on the arduino.
+When looking at the connector wire that is actually going to be soldered to the arduino pins, all of the connector pins will be flipped (aka pin 6 of the connector wire will connect to pin 2 of the desk connector, SO BE CAREFUL).
 
 ## Connecting Ultrasonic Distance Measuring Sensor to Arduino
 
